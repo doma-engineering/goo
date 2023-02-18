@@ -23,7 +23,7 @@ GIT_TAG = $(strip $(shell head="$(call GIT_REVISION)"; git tag --points-at $$hea
 SOURCE_DATE_EPOCH_PATH = lib/elixir/tmp/ebin_reproducible
 SOURCE_DATE_EPOCH_FILE = $(SOURCE_DATE_EPOCH_PATH)/SOURCE_DATE_EPOCH
 
-.PHONY: install compile erlang elixir unicode app build_plt clean_plt dialyze test check_reproducible clean clean_residual_files format install_man clean_man docs Docs.zip Precompiled.zip zips
+.PHONY: install compile erlang elixir unicode app build_plt clean_plt dialyze test check_reproducible clean clean_residual_files format install_man clean_man docs Docs.zip Precompiled.zip zips git
 .NOTPARALLEL:
 
 #==> Functions
@@ -333,3 +333,8 @@ install_man: build_man
 	$(Q) $(INSTALL_DATA) man/iex.1     $(DESTDIR)$(MAN_PREFIX)/man1
 	$(Q) $(INSTALL_DATA) man/mix.1     $(DESTDIR)$(MAN_PREFIX)/man1
 	"$(MAKE)" clean_man
+
+#==> Upstream management tasks
+
+git:
+	git remote add upstream https://github.com/elixir-lang/elixir.git
