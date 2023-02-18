@@ -1,11 +1,2 @@
 ---
 blank_issues_enabled: true
-
-contact_links:
-  - name: Ask questions, support, and general discussions
-    url: https://elixirforum.com/
-    about: Ask questions, provide support, and more on Elixir Forum
-
-  - name: Propose new features
-    url: https://github.com/elixir-lang/elixir/#proposing-new-features
-    about: Propose new features in our mailing list
