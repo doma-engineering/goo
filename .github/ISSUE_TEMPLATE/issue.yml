@@ -6,48 +6,41 @@ body:
   - type: markdown
     attributes:
       value: >
-        Thank you for contributing to Elixir! :heart:
+        There are two sections "Why?" and either "How?" or "What?".
 
 
-        Please, do not use this form for guidance, questions or support.
-        Try instead in [Elixir Forum](https://elixirforum.com),
-        the [IRC Chat](https://web.libera.chat/#elixir),
-        [Stack Overflow](https://stackoverflow.com/questions/tagged/elixir),
-        [Slack](https://elixir-slackin.herokuapp.com),
-        [Discord](https://discord.gg/elixir) or in other online communities.
+        "Why?" means "why does something have to be done? What is the purpose of the proposed work?".
+
+        "How?" lists a **checklist** of clearly defined items that you think need to be done to fulfill the purpose of the work.
+        These checklists are to consist of clear instructions for each of which anyone can trivially check if the step was done or not.
+        In other words, they have to each include or clearly imply an acceptance criterion.
+
+        "What?" lists a **checklist** of clearly defined items that you think need to be figured out to fulfill the puprose of the work.
 
   - type: textarea
-    id: elixir-and-otp-version
+    id: why
     attributes:
-      label: Elixir and Erlang/OTP versions
-      description: Paste the output of `elixir --version` here.
-    validations:
-      required: true
-
-  - type: input
-    id: os
-    attributes:
-      label: Operating system
-      description: The operating system that this issue is happening on.
+      label: Why does it have to be done?
+      description: What is the purpose of the proposed work?
     validations:
       required: true
 
   - type: textarea
-    id: current-behavior
+    id: how
     attributes:
-      label: Current behavior
-      description: >
-        Include code samples, errors, and stacktraces if appropriate.
-
-
-        If reporting a bug, please include the reproducing steps.
+      label: How do you think does it have to be done?
+      description: If you know how to do it, include "how", otherwise - "what".
+      placeholder: >
+         - [ ]
     validations:
-      required: true
+      required: false
 
   - type: textarea
-    id: expected-behavior
-    attributes:
-      label: Expected behavior
-      description: A short description on how you expect the code to behave.
+    id: what
+    attributes: 
+      label: What do you think needs to be figured out for it to be done?
+      description: If you know how to do it, include "how", otherwise - "what".
+      placeholder: >
+         - [ ]
     validations:
-      required: true
+      required: false
