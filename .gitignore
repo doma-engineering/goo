@@ -12,3 +12,4 @@
 .elixir.plt
 erl_crash.dump
 .direnv/
+result
