@@ -95,7 +95,7 @@
 -define(pipe_op(T),
   T =:= $|).
 
-%% Deprecated operators
+%% Undeprecated operators
 
 -define(unary_op3(T1, T2, T3),
   T1 =:= $~, T2 =:= $~, T3 =:= $~).
@@ -875,25 +875,7 @@ handle_op(Rest, Line, Column, Kind, Length, Op, Scope, Tokens) ->
       Token = {identifier, {Line, Column, nil}, Op},
       tokenize(Remaining, Line, Column + Length + Extra, Scope, [Token | Tokens]);
     {Remaining, Extra} ->
-      NewScope =
-        %% TODO: Remove these deprecations on Elixir v2.0
-        case Op of
-          '^^^' ->
-            Msg = "^^^ is deprecated. It is typically used as xor but it has the wrong precedence, use Bitwise.bxor/2 instead",
-            prepend_warning(Line, Column, Msg, Scope);
-
-          '~~~' ->
-            Msg = "~~~ is deprecated. Use Bitwise.bnot/1 instead for clarity",
-            prepend_warning(Line, Column, Msg, Scope);
-
-          '<|>' ->
-            Msg = "<|> is deprecated. Use another pipe-like operator",
-            prepend_warning(Line, Column, Msg, Scope);
-
-          _ ->
-            Scope
-        end,
-
+      NewScope = Scope,
       Token = {Kind, {Line, Column, previous_was_eol(Tokens)}, Op},
       tokenize(Remaining, Line, Column + Length + Extra, NewScope, add_token_with_eol(Token, Tokens))
   end.
