@@ -9,9 +9,11 @@
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
+      erlang = pkgs.erlangR24;
+
       # Specify dependencies
       buildInputs = [
-        pkgs.erlang
+        erlang
         pkgs.gnumake
         pkgs.glibcLocalesUtf8
       ];
@@ -68,7 +70,7 @@
              b=$(basename $f)
               if [ "$b" = mix ]; then continue; fi
               wrapProgram $f \
-                --prefix PATH ":" "${pkgs.lib.makeBinPath [ pkgs.erlang pkgs.coreutils pkgs.curl pkgs.bash ]}"
+                --prefix PATH ":" "${pkgs.lib.makeBinPath [ erlang pkgs.coreutils pkgs.curl pkgs.bash ]}"
             done
             substituteInPlace $out/bin/mix \
                   --replace "/usr/bin/env elixir" "${pkgs.coreutils}/bin/env elixir"
