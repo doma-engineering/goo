@@ -45,7 +45,7 @@
       # Enjoy!
       devShell.x86_64-linux = pkgs.mkShell {
         nativeBuildInputs = nativeBuildInputs;
-        buildInputs = buildInputs;
+        buildInputs = buildInputs ++ [ pkgs.hub ];
       };
 
       defaultPackage.x86_64-linux = pkgs.stdenv.mkDerivation {

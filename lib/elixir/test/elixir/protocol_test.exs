@@ -159,6 +159,15 @@ defmodule ProtocolTest do
     assert args == [{:type, 23, :product, [{:user_type, 23, :t, []}]}, {:type, 23, :term, []}]
   end
 
+  # Author: Quinn Wilton @ http://quinnwilton.com/
+  test "protocol with no functions is a behaviour" do
+    defprotocol ProtoNoFunctions do
+    end
+
+    defimpl ProtoNoFunctions, for: Integer do
+    end
+  end
+
   test "protocol defines functions and attributes" do
     assert Sample.__protocol__(:module) == Sample
     assert Sample.__protocol__(:functions) == [ok: 1]
