@@ -187,6 +187,15 @@ defmodule ProtocolTest do
     assert {:type, {:t, {_, _, :any, []}, []}} = get_type(@sample_binary, :t, 0)
   end
 
+  # Author: Quinn Wilton @ http://quinnwilton.com/
+  test "protocol with no functions is a behaviour" do
+    defprotocol ProtoNoFunctions do
+    end
+
+    defimpl ProtoNoFunctions, for: Integer do
+    end
+  end
+
   test "protocol defines functions and attributes" do
     assert Sample.__protocol__(:module) == Sample
     assert Sample.__protocol__(:functions) == [ok: 1]
