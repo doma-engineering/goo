@@ -322,13 +322,6 @@ defmodule ProtocolTest do
   describe "warnings" do
     import ExUnit.CaptureIO
 
-    test "with no definitions" do
-      assert capture_io(:stderr, fn ->
-               defprotocol SampleWithNoDefinitions do
-               end
-             end) =~ "protocols must define at least one function, but none was defined"
-    end
-
     test "when @callbacks and friends are defined inside a protocol" do
       message =
         capture_io(:stderr, fn ->

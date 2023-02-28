@@ -775,14 +775,6 @@ defmodule Protocol do
     callbacks = :maps.keys(callback_metas)
     functions = Module.get_attribute(env.module, :__functions__)
 
-    if functions == [] do
-      warn(
-        "protocols must define at least one function, but none was defined",
-        env,
-        nil
-      )
-    end
-
     # TODO: Convert the following warnings into errors in future Elixir versions
     :lists.map(
       fn {name, arity} = fa ->
