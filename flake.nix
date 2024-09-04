@@ -9,7 +9,7 @@
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
 
-      erlang = pkgs.erlangR24;
+      erlang = pkgs.erlang_26;
 
       # Specify dependencies
       buildInputs = [
